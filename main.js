@@ -11,6 +11,8 @@ ASSET_MANAGER.queueDownload("./sprites/items.png");
 ASSET_MANAGER.queueDownload("./sprites/coins.png");
 
 ASSET_MANAGER.downloadAll(function () {
+	PARAMS.VOLUME = 0.4;
+
 	var gameEngine = new GameEngine();
 
 	PARAMS.BLOCKWIDTH = PARAMS.BITWIDTH * PARAMS.SCALE;

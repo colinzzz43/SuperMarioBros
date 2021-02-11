@@ -97,7 +97,7 @@ class SceneManager {
 
         this.bgm = new Audio("./sound/bgm/overworld.ogg");
         this.bgm.loop = true;
-        this.bgm.volume = 0.4;
+        this.bgm.volume = PARAMS.VOLUME;
     };
 
     update() {

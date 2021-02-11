@@ -210,6 +210,11 @@ class Mario {
                         this.fallAcc = RUN_FALL;
                     }
                     this.state = 4;
+                    // audio
+                    if (this.size === 0 || this.size === 3)
+                        playSound("./sound/sfx/jump_small.wav");
+                    else 
+                        playSound("./sound/sfx/jump_super.wav");
                 }
             } else {
                 // air physics
@@ -280,6 +285,8 @@ class Mario {
                             && !entity.dead) { // can't squish an already squished Goomba
                             entity.dead = true;
                             that.velocity.y = -240; // bounce
+
+                            playSound("./sound/sfx/stomp.wav");
                         }
                     }
                     if (that.velocity.y < 0) { // jumping
@@ -319,14 +326,17 @@ class Mario {
                             that.y -= PARAMS.BLOCKWIDTH;
                             that.size = 1;
                             that.game.addEntity(new Score(that.game, that.x, that.y, 1000));
+                            playSound("./sound/sfx/powerup.wav");
                         } else {
                             that.game.camera.lives++;
+                            playSound("./sound/sfx/1-up.wav");
                         }
                     }
                     if (entity instanceof Coin) {
                         entity.removeFromWorld = true;
                         that.game.camera.score += 200;
                         that.game.camera.addCoin();
+                        playSound("./sound/sfx/coin.wav");
                     }
                 }
             });

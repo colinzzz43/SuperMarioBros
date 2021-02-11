@@ -13,6 +13,13 @@ function hsl(h, s, l) {
     return "hsl(" + h + "," + s + "%," + l + "%)";
 };
 
+// play a soundtrack, once
+function playSound(path) {
+    var a = new Audio(path);
+    a.volume = PARAMS.VOLUME;
+    a.play();
+}
+
 // creates an alias for requestAnimationFrame for backwards compatibility
 window.requestAnimFrame = (function () {
     return window.requestAnimationFrame ||

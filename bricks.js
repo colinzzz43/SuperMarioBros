@@ -69,21 +69,25 @@ class Brick { // type 0 = invis, 1 = brick, 2 = question, 3 = block
                     if (this.startTime === 0) this.startTime = Date.now();
                     if (Date.now() - this.startTime < 3000) { 
                         this.game.addEntity(new CoinPop(this.game, this.x, this.BB.top - PARAMS.BLOCKWIDTH));
+                        playSound("./sound/sfx/coin.wav");
                         break;
                     }
                 case 'Coin':
                     this.game.addEntity(new CoinPop(this.game, this.x, this.BB.top - PARAMS.BLOCKWIDTH));
                     this.type = 3;
+                    playSound("./sound/sfx/coin.wav");
                     break;
                 case 'Growth':
                     if (this.game.mario.size === 0) {
                         this.game.addEntity(new Mushroom(this.game, this.x, this.BB.top, this, 'Growth'));
                     }
                     this.type = 3;
+                    playSound("./sound/sfx/powerup_appears.wav");
                     break;
                 case '1up':
                     this.game.addEntity(new Mushroom(this.game, this.x, this.BB.top, this, '1up'));
                     this.type = 3;
+                    playSound("./sound/sfx/powerup_appears.wav");
             }
         
         }
