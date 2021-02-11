@@ -91,6 +91,13 @@ class GameEngine {
                     break;
             }
         }, false);
+
+        this.ctx.canvas.addEventListener("click", function startMusic(e) {
+            if (that.camera.bgm && that.camera.bgm.paused) {
+                that.camera.bgm.play();
+                that.ctx.canvas.removeEventListener("click", startMusic);
+            }
+        }, false);
     };
 
     addEntity(entity) {

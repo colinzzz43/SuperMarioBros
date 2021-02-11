@@ -6,6 +6,7 @@ class SceneManager {
         this.score = 0;
         this.coins = 0;
         this.lives = 3;
+        this.bgm = null;
 
         this.coinAnimation = new Animator(ASSET_MANAGER.getAsset("./sprites/coins.png"), 0, 160, 8, 8, 4, 0.2, 0, false, true);
 
@@ -93,6 +94,10 @@ class SceneManager {
         this.mario.x = x;
         this.mario.y = y;
         this.game.addEntity(this.mario);
+
+        this.bgm = new Audio("./sound/bgm/overworld.ogg");
+        this.bgm.loop = true;
+        this.bgm.volume = 0.4;
     };
 
     update() {
