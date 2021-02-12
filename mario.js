@@ -116,6 +116,7 @@ class Mario {
     };
 
     die() {
+        playSound("./sound/sfx/smb_mariodie.wav");
         this.velocity.y = -640;
         this.dead = true;
     };
@@ -127,7 +128,7 @@ class Mario {
         // I used this page to approximate my constants
         // https://web.archive.org/web/20130807122227/http://i276.photobucket.com/albums/kk21/jdaster64/smb_playerphysics.png
         // I converted these values from hex and into units of pixels and seconds.
-        
+
         const MIN_WALK = 4.453125;
         const MAX_WALK = 93.75;
         const MAX_RUN = 153.75;
@@ -213,7 +214,7 @@ class Mario {
                     // audio
                     if (this.size === 0 || this.size === 3)
                         playSound("./sound/sfx/jump_small.wav");
-                    else 
+                    else
                         playSound("./sound/sfx/jump_super.wav");
                 }
             } else {
@@ -257,7 +258,9 @@ class Mario {
             this.updateBB();
 
             // if mario fell of the map he's dead
-            if (this.y > PARAMS.BLOCKWIDTH * 16) this.die();
+            if (this.y > PARAMS.BLOCKWIDTH * 16) 
+                this.die();
+            
 
             // collision
             var that = this;
@@ -273,7 +276,7 @@ class Mario {
                             }
                             that.velocity.y === 0;
 
-                            if(that.state === 4) that.state = 0; // set state to idle
+                            if (that.state === 4) that.state = 0; // set state to idle
                             that.updateBB();
 
                             if (entity instanceof Tube && entity.destination && that.game.down) {
@@ -295,6 +298,8 @@ class Mario {
                             && that.BB.collide(entity.leftBB) && that.BB.collide(entity.rightBB)) { // collide with the center point of the brick
                             entity.bounce = true;
                             that.velocity.y = 0;
+
+                            playSound("./sound/sfx/smb_breakblock.wav");
                         }
                     }
                     if (entity instanceof Brick && entity.type // hit a visible brick
@@ -313,7 +318,7 @@ class Mario {
                             that.x = entity.BB.left - PARAMS.BLOCKWIDTH;
                             if (that.velocity.x > 0) that.velocity.x = 0;
                             if (entity instanceof SideTube && that.game.right)
-                                that.game.camera.loadLevel(levelOne, 162.5 * PARAMS.BLOCKWIDTH, 11 * PARAMS.BLOCKWIDTH) 
+                                that.game.camera.loadLevel(levelOne, 162.5 * PARAMS.BLOCKWIDTH, 11 * PARAMS.BLOCKWIDTH)
                         } else {
                             that.x = entity.BB.right;
                             if (that.velocity.x < 0) that.velocity.x = 0;
