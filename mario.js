@@ -255,7 +255,6 @@ class Mario {
                     } else {
                         // do nothing
                     }
-<<<<<<< HEAD
                     this.state = 4;
                     // audio
                     if (this.size === 0 || this.size === 3)
@@ -284,8 +283,6 @@ class Mario {
                     } else this.velocity.x -= ACC_WALK * TICK;
                 } else {
                     // do nothing
-=======
->>>>>>> paletteSwitching
                 }
             }
 
@@ -337,12 +334,7 @@ class Mario {
                             && !entity.dead) { // can't squish an already squished Goomba
                             entity.dead = true;
                             that.velocity.y = -240; // bounce
-<<<<<<< HEAD
-
-                            playSound("./sound/sfx/stomp.wav");
-=======
                             ASSET_MANAGER.playAsset("./audio/stomp.mp3");
->>>>>>> paletteSwitching
                         }
                     }
                     if (that.velocity.y < 0) { // jumping

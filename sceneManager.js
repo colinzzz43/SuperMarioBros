@@ -127,7 +127,6 @@ class SceneManager {
             });
             if(!mario) this.game.addEntity(this.mario);
         }
-<<<<<<< HEAD
         this.mario.x = x;
         this.mario.y = y;
         this.game.addEntity(this.mario);
@@ -135,7 +134,6 @@ class SceneManager {
         this.bgm = new Audio("./sound/bgm/overworld.ogg");
         this.bgm.loop = true;
         this.bgm.volume = PARAMS.VOLUME;
-=======
     };
 
     updateAudio() {
@@ -144,7 +142,6 @@ class SceneManager {
 
         ASSET_MANAGER.muteAudio(mute);
         ASSET_MANAGER.adjustVolume(volume);
->>>>>>> paletteSwitching
     };
 
     update() {
