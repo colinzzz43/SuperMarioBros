@@ -1,7 +1,7 @@
 var levelOne = {
     music: "./music/overworld.mp3",
     label: "1-1",
-    ground: [{ x: 0, y: 14, size: 69 }, { x: 71, y: 14, size: 15 }, { x: 89, y: 14, size: 63 }, { x: 154, y: 14, size: 69 }],
+    ground: [{ x: 0, y: 14, size: 69, true}, { x: 71, y: 14, size: 15 }, { x: 89, y: 14, size: 63 }, { x: 154, y: 14, size: 69 }],
     bighills: [{ x: 0, y: 11.5 }, { x: 48, y: 11.5 }, { x: 95, y: 11.5 }, { x: 143, y: 11.5 }],
     hills: [{ x: 16, y: 12.75 }, { x: 64, y: 12.75 }, { x: 111, y: 12.75 }, { x: 159, y: 12.75 }],
     bushes: [{ x: 11.5, y: 13, size: 3 }, { x: 23.5, y: 13, size: 1 }, { x: 41.5, y: 13, size: 2 },
